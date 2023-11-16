@@ -1,32 +1,36 @@
-/*Counting occurrences: Re-write the program given in slide 13 (Topic C-Strings) 
-using a function: Write a function called Count which takes as parameters a string 
-and one character and returns the number of times the character occurs in the string. 
-Write a program to test your function with user-defined data.
-For example: Assuming the string passed is “Hello” and the letter is “l”, your 
-function should return 2.*/
+/*Name:Uche Hadassah
+This program counts the number of times a letter appears in an string*/
 #include <iostream> 
 #include<cstring>
 using namespace std;
-int Count(char[], char);
+const int MAX = 100;
+int Count(char[], char);//Function Prototype
 int main()
 {
-	char word[30];
+	char word[MAX];
 	char letter;
 	cout << "Type in a word: ";
 	cin >> word;
 	cout << "Type in the letter you want to search for: ";
 	cin >> letter;
-		cout << "The letter" << letter<< " appears " << Count(word, letter) << " times" << endl;
+	if (Count(word, letter) == 1)//When the letter appears once
+	{
+		cout << "The letter " << letter << " appears once" << endl;
+	}
+	else
+	{
+		cout << "The letter " << letter << " appears " << Count(word, letter) << " times" << endl;
+	}
 	return 0;
 }
 
 int Count(char str[], char alpha)
 {
 	int count = 0;
-	for (int i = 0; str[i] != '\0'; i++)
+	for (int i = 0; str[i] != '\0'; i++)//as long as we are not at the end of the string
 	{
 		if (str[i] == alpha)
-			count++;
+			count++;//increment the counter
 	}
-	return count;
+	return count;//returns count
 }
