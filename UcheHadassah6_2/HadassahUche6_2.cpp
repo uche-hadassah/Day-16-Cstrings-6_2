@@ -5,20 +5,28 @@ Write a program to test your function with user-defined data.
 For example: Assuming the string passed is “Hello” and the letter is “l”, your 
 function should return 2.*/
 #include <iostream> 
-//Counts the number of times the letter h appears in string
+#include<cstring>
 using namespace std;
+int Count(char[], char);
 int main()
 {
-	int i, count = 0;
-	char word[15];
+	char word[30];
+	char letter;
 	cout << "Type in a word: ";
 	cin >> word;
-	for (i = 0; word[i] != '\0'; i++)
-		if (word[i] == 'h')
-			count++;
-	if (count == 1)
-		cout << "The letter h appears 1 time" << endl;
-	else
-		cout << "The letter h appears " << count << "times" << endl;
+	cout << "Type in the letter you want to search for: ";
+	cin >> letter;
+		cout << "The letter" << letter<< " appears " << Count(word, letter) << " times" << endl;
 	return 0;
+}
+
+int Count(char str[], char alpha)
+{
+	int count = 0;
+	for (int i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] == alpha)
+			count++;
+	}
+	return count;
 }
